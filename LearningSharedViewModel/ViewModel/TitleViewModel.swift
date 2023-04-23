@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct TitleViewModel {
+class TitleViewModel {
     
     var didGetData: (([TitleCellModel]) -> ())?
+    var didUpdateData: ((TitleCellModel, IndexPath) -> ())?
     
     private var data: [TitleCellModel] = [
         TitleCellModel(title: "1", isHiddenBottom: true),
@@ -21,5 +22,13 @@ struct TitleViewModel {
     
     func getData() {
         didGetData?(data)
+    }
+    
+    func reload(with indexPath: IndexPath) {
+        var newData = data[indexPath.row]
+        newData.title += "*"
+        newData.isHiddenBottom.toggle()
+        data[indexPath.row] = newData
+        didUpdateData?(newData, indexPath)
     }
 }

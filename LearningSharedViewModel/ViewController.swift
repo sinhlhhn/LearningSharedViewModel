@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         viewModel.didGetData = { [weak self] data in
             self?.reloadUI(with: data)
         }
+        
+        viewModel.didUpdateData = { [weak self] data, indexPath in
+            self?.updateData(with: data, at: indexPath)
+        }
     }
     
     private func getData() {
@@ -41,10 +45,13 @@ class ViewController: UIViewController {
     }
 
     private func configDatasource() {
-        datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
+        datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
+            guard let self = self else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
-            cell.titleLabel.text = itemIdentifier.title
-            cell.bottomView.isHidden = itemIdentifier.isHiddenBottom
+            cell.viewModel = viewModel
+            cell.bindModel(model: itemIdentifier)
+            // TODO: -Cần lưu lại indextPath cho VM xác định được reload Cell nào. Cần tìm cách khác
+            cell.indexPath = indexPath
             return cell
         })
     }
@@ -56,6 +63,16 @@ class ViewController: UIViewController {
         
         datasource.apply(snapShoot)
     }
+    
+    private func updateData(with data: TitleCellModel, at indexPath: IndexPath) {
+        guard let selectedItem = datasource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        snapShoot.insertItems([data], afterItem: selectedItem)
+        snapShoot.deleteItems([selectedItem])
+        
+        datasource.apply(snapShoot, animatingDifferences: false)
+    }
 }
 
 extension ViewController: UITableViewDelegate {
@@ -64,7 +81,7 @@ extension ViewController: UITableViewDelegate {
             return
         }
         
-        var snapShoot = datasource.snapshot()
+        snapShoot = datasource.snapshot()
         var newItem = selectedItem
         newItem.title += "*"
         newItem.isHiddenBottom.toggle()
