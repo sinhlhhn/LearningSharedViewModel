@@ -14,14 +14,24 @@ class ViewController: UIViewController {
     private var datasource: UITableViewDiffableDataSource<Int, TitleCellModel>!
     private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
     
+    var viewModel = TitleViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         configDatasource()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//            self.reloadView()
+        handleCallBack()
+        getData()
+    }
+    
+    private func handleCallBack() {
+        viewModel.didGetData = { [weak self] data in
+            self?.reloadUI(with: data)
         }
+    }
+    
+    private func getData() {
+        viewModel.getData()
     }
     
     private func configTableView() {
@@ -31,30 +41,21 @@ class ViewController: UIViewController {
     }
 
     private func configDatasource() {
-        
         datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
             cell.titleLabel.text = itemIdentifier.title
             cell.bottomView.isHidden = itemIdentifier.isHiddenBottom
             return cell
         })
-        snapShoot = NSDiffableDataSourceSnapshot()
-        snapShoot.appendSections([0])
-        snapShoot.appendItems([TitleCellModel(title: "1", isHiddenBottom: false)], toSection: 0)
-        
-        datasource.apply(snapShoot)
     }
     
-    func reloadView() {
-        var snapShoot = datasource.snapshot()
-        let oldItem = TitleCellModel(title: "1", isHiddenBottom: false)
-        snapShoot.insertItems([TitleCellModel(title: "1*", isHiddenBottom: false)], afterItem: oldItem)
-        snapShoot.deleteItems([oldItem])
+    private func reloadUI(with data: [TitleCellModel]) {
+        snapShoot = NSDiffableDataSourceSnapshot()
+        snapShoot.appendSections([0])
+        snapShoot.appendItems(data, toSection: 0)
         
         datasource.apply(snapShoot)
-        print("Reload")
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
