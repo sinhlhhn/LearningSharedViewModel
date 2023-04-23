@@ -11,14 +11,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var data = [1,2,3,4,5,6,7]
-    private var datasource: UITableViewDiffableDataSource<Int, Int>!
-    private var snapShoot: NSDiffableDataSourceSnapshot<Int, Int>!
+    private var datasource: UITableViewDiffableDataSource<Int, TitleCellModel>!
+    private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         configDatasource()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.reloadView()
+        }
     }
     
     private func configTableView() {
@@ -30,14 +33,18 @@ class ViewController: UIViewController {
         
         datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
-            
+            cell.titleLabel.text = itemIdentifier.title
             return cell
         })
         snapShoot = NSDiffableDataSourceSnapshot()
         snapShoot.appendSections([0])
-        snapShoot.appendItems(data, toSection: 0)
+        snapShoot.appendItems([], toSection: 0)
         
         datasource.apply(snapShoot)
+    }
+    
+    func reloadView() {
+        print("Reload")
     }
 
 }
