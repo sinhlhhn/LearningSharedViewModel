@@ -8,6 +8,6 @@
 import Foundation
 
 struct TitleCellModel: Hashable {
-    let title: String
-    let isHiddenBottom: Bool
+    var title: String
+    var isHiddenBottom: Bool
 }
