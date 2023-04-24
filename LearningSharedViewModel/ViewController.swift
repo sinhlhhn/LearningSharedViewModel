@@ -1,5 +1,5 @@
 //
-//  TitleViewController.swift
+//  ViewController.swift
 //  LearningSharedViewModel
 //
 //  Created by Developer on 23/04/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleViewController: UIViewController {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -86,7 +86,7 @@ class TitleViewController: UIViewController {
     }
 }
 
-extension TitleViewController: UITableViewDelegate {
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         guard let selectedItem = datasource.itemIdentifier(for: indexPath) else {

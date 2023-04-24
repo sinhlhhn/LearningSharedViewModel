@@ -16,14 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let sb = UIStoryboard(name: "TitleViewController", bundle: nil)
+        let sb = UIStoryboard(name: "ViewController", bundle: nil)
         
         let useCase = TitleUseCase()
         let sharedUseCase = SharedUseCase()
         let viewModel = TitleViewModel(useCase: useCase)
         let sharedViewModel = SharedViewModel(useCase: sharedUseCase)
-        let vc = sb.instantiateViewController(identifier: "TitleViewController") { coder in
-            return TitleViewController(coder: coder, viewModel: viewModel, sharedViewModel: sharedViewModel)
+        let vc = sb.instantiateViewController(identifier: "ViewController") { coder in
+            return ViewController(coder: coder, viewModel: viewModel, sharedViewModel: sharedViewModel)
         }
         
         window.rootViewController = vc
