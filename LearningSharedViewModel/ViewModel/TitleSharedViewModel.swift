@@ -1,5 +1,5 @@
 //
-//  SharedViewModel.swift
+//  TitleSharedViewModel.swift
 //  LearningSharedViewModel
 //
 //  Created by Developer on 24/04/2023.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol SharedViewModelProtocol {
+protocol TitleSharedViewModelProtocol {
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())? {get set}
     
     func reload(with model: TitleCellModel, at indexPath: IndexPath)
 }
 
-class SharedViewModel: SharedViewModelProtocol {
+class TitleSharedViewModel: TitleSharedViewModelProtocol {
     let useCase: SharedUseCaseProtocol
     
     init(useCase: SharedUseCaseProtocol) {
