@@ -2,4 +2,4 @@
 
 Learn how to share ViewModel between ViewController and TableViewCell
 
-<img width="874" alt="image" src="https://user-images.githubusercontent.com/66399719/233963650-0e2fecfd-2399-4c86-9d26-5897de58cdcb.png">
+<img width="879" alt="image" src="https://user-images.githubusercontent.com/66399719/233981831-d920bfe5-e660-48e4-b63d-d33a1ca0bdd5.png">
