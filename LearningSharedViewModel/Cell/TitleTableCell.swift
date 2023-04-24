@@ -17,7 +17,7 @@ class TitleTableCell: UITableViewCell {
     private(set) var model: TitleCellModel!
     var indexPath: IndexPath!
     
-    var viewModel: TitleViewModelProtocol!
+    var viewModel: SharedViewModelProtocol!
     
     override func awakeFromNib() {
         super.awakeFromNib()

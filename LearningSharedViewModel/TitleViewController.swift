@@ -15,9 +15,11 @@ class TitleViewController: UIViewController {
     private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
     
     var viewModel: TitleViewModelProtocol
+    var sharedViewModel: SharedViewModelProtocol
     
-    init?(coder: NSCoder, viewModel: TitleViewModelProtocol) {
+    init?(coder: NSCoder, viewModel: TitleViewModelProtocol, sharedViewModel: SharedViewModelProtocol) {
         self.viewModel = viewModel
+        self.sharedViewModel = sharedViewModel
         super.init(coder: coder)
     }
     
@@ -38,7 +40,7 @@ class TitleViewController: UIViewController {
             self?.reloadUI(with: data)
         }
         
-        viewModel.didUpdateData = { [weak self] data, indexPath in
+        sharedViewModel.didUpdateData = { [weak self] data, indexPath in
             self?.updateData(with: data, at: indexPath)
         }
     }
@@ -57,7 +59,7 @@ class TitleViewController: UIViewController {
         datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
             guard let self = self else { return UITableViewCell() }
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
-            cell.viewModel = viewModel
+            cell.viewModel = sharedViewModel
             cell.bindModel(model: itemIdentifier)
             // TODO: -Cần lưu lại indextPath cho VM xác định được reload Cell nào. Cần tìm cách khác
             cell.indexPath = indexPath

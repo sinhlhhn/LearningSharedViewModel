@@ -19,9 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let sb = UIStoryboard(name: "TitleViewController", bundle: nil)
         
         let useCase = TitleUseCase()
+        let sharedUseCase = SharedUseCase()
         let viewModel = TitleViewModel(useCase: useCase)
+        let sharedViewModel = SharedViewModel(useCase: sharedUseCase)
         let vc = sb.instantiateViewController(identifier: "TitleViewController") { coder in
-            return TitleViewController(coder: coder, viewModel: viewModel)
+            return TitleViewController(coder: coder, viewModel: viewModel, sharedViewModel: sharedViewModel)
         }
         
         window.rootViewController = vc
