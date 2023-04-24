@@ -77,18 +77,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         guard let selectedItem = datasource.itemIdentifier(for: indexPath) else {
             return
         }
-        
-        snapShoot = datasource.snapshot()
-        var newItem = selectedItem
-        newItem.title += "*"
-        newItem.isHiddenBottom.toggle()
-        snapShoot.insertItems([newItem], afterItem: selectedItem)
-        snapShoot.deleteItems([selectedItem])
-        
-        datasource.apply(snapShoot, animatingDifferences: false)
-        print("Select")
     }
 }
