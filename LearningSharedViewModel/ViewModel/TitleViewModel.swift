@@ -25,6 +25,7 @@ class TitleViewModel: TitleViewModelProtocol {
     var didGetData: (([TitleCellModel]) -> ())?
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())?
     
+    // TODO: - Cell không cần sử dụng những func này
     func getData() {
         let data = useCase.getData()
         didGetData?(data)
