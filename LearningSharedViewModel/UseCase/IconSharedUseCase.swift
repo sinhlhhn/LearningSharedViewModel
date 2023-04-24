@@ -13,6 +13,7 @@ protocol IconSharedUseCaseProtocol {
 
 class IconSharedUseCase: IconSharedUseCaseProtocol {
     func getNewData() -> IconCellModel {
-        IconCellModel(icon: "😡")
+        let random = Int.random(in: 0...100)
+        return IconCellModel(icon: "\(random) 😡")
     }
 }
