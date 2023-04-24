@@ -21,10 +21,12 @@ class ViewController: UIViewController {
     
     var viewModel: HomeViewModelProtocol
     var titleSharedViewModel: TitleSharedViewModelProtocol
+    var iconSharedViewModel: IconSharedViewModelProtocol
     
-    init?(coder: NSCoder, viewModel: HomeViewModelProtocol, titleSharedViewModel: TitleSharedViewModelProtocol) {
+    init?(coder: NSCoder, viewModel: HomeViewModelProtocol, titleSharedViewModel: TitleSharedViewModelProtocol, iconSharedViewModel: IconSharedViewModelProtocol) {
         self.viewModel = viewModel
         self.titleSharedViewModel = titleSharedViewModel
+        self.iconSharedViewModel = iconSharedViewModel
         super.init(coder: coder)
     }
     
@@ -47,6 +49,9 @@ class ViewController: UIViewController {
         
         titleSharedViewModel.didUpdateData = { [weak self] data, indexPath in
             self?.updateData(with: .title(data), at: indexPath)
+        }
+        iconSharedViewModel.didUpdateData = { [weak self] newData in
+            self?.addNewData(with: .icon(newData))
         }
     }
     
@@ -74,7 +79,7 @@ class ViewController: UIViewController {
                 return cell
             case .icon(let model):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IconTableCell.identifier) as! IconTableCell
-//                cell.viewModel = titleSharedViewModel
+                cell.viewModel = iconSharedViewModel
                 cell.bindModel(model: model)
                 return cell
             }
@@ -97,6 +102,15 @@ class ViewController: UIViewController {
         snapShoot.deleteItems([selectedItem])
         
         datasource.apply(snapShoot, animatingDifferences: false)
+    }
+    
+    private func addNewData(with data: Model) {
+        guard let lastItem = snapShoot.itemIdentifiers.last else {
+            return
+        }
+        snapShoot.insertItems([data], afterItem: lastItem)
+        
+        datasource.apply(snapShoot, animatingDifferences: true)
     }
 }
 

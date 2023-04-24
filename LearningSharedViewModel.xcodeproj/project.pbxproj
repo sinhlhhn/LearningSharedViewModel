@@ -22,6 +22,8 @@
 		8BE0B1DA29F68BCE00DACC0F /* TitleSharedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1D929F68BCE00DACC0F /* TitleSharedUseCase.swift */; };
 		8BE0B1DD29F68E2900DACC0F /* IconTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1DB29F68E2900DACC0F /* IconTableCell.swift */; };
 		8BE0B1DE29F68E2900DACC0F /* IconTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE0B1DC29F68E2900DACC0F /* IconTableCell.xib */; };
+		8BE0B1E029F697CC00DACC0F /* IconSharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1DF29F697CC00DACC0F /* IconSharedViewModel.swift */; };
+		8BE0B1E229F6982800DACC0F /* IconSharedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1E129F6982800DACC0F /* IconSharedUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8BE0B1D929F68BCE00DACC0F /* TitleSharedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSharedUseCase.swift; sourceTree = "<group>"; };
 		8BE0B1DB29F68E2900DACC0F /* IconTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableCell.swift; sourceTree = "<group>"; };
 		8BE0B1DC29F68E2900DACC0F /* IconTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconTableCell.xib; sourceTree = "<group>"; };
+		8BE0B1DF29F697CC00DACC0F /* IconSharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSharedViewModel.swift; sourceTree = "<group>"; };
+		8BE0B1E129F6982800DACC0F /* IconSharedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSharedUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			children = (
 				8BE0B1CF29F57ECB00DACC0F /* HomeViewModel.swift */,
 				8BE0B1D729F68B7100DACC0F /* TitleSharedViewModel.swift */,
+				8BE0B1DF29F697CC00DACC0F /* IconSharedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			children = (
 				8BE0B1D229F624D400DACC0F /* HomeUseCase.swift */,
 				8BE0B1D929F68BCE00DACC0F /* TitleSharedUseCase.swift */,
+				8BE0B1E129F6982800DACC0F /* IconSharedUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 				8BE0B1D329F624D400DACC0F /* HomeUseCase.swift in Sources */,
 				8BE0B1DD29F68E2900DACC0F /* IconTableCell.swift in Sources */,
 				8BE0B1CD29F57E4A00DACC0F /* TitleCellModel.swift in Sources */,
+				8BE0B1E229F6982800DACC0F /* IconSharedUseCase.swift in Sources */,
 				8BE0B1DA29F68BCE00DACC0F /* TitleSharedUseCase.swift in Sources */,
+				8BE0B1E029F697CC00DACC0F /* IconSharedViewModel.swift in Sources */,
 				8BE0B1B729F4F10300DACC0F /* ViewController.swift in Sources */,
 				8BE0B1D829F68B7100DACC0F /* TitleSharedViewModel.swift in Sources */,
 				8BE0B1C829F4F49400DACC0F /* TitleTableCell.swift in Sources */,

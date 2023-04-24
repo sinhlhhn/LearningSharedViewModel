@@ -12,13 +12,18 @@ class IconTableCell: UITableViewCell {
     
     @IBOutlet weak var iconLabel: UILabel!
 
+    var viewModel: IconSharedViewModelProtocol!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func bindModel(model: IconCellModel) {
         iconLabel.text = model.icon
+    }
+    
+    @IBAction func newItemTapped(_ sender: Any) {
+        viewModel.addNewItem()
     }
 }
 
