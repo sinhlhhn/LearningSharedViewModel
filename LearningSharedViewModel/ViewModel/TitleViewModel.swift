@@ -14,9 +14,9 @@ protocol TitleViewModelProtocol {
 }
 
 class TitleViewModel: TitleViewModelProtocol {
-    let useCase: TitleUseCaseProtocol
+    let useCase: HomeUseCaseProtocol
     
-    init(useCase: TitleUseCaseProtocol) {
+    init(useCase: HomeUseCaseProtocol) {
         self.useCase = useCase
     }
     

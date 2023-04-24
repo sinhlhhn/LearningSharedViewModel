@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let sb = UIStoryboard(name: "ViewController", bundle: nil)
         
-        let useCase = TitleUseCase()
+        let useCase = HomeUseCase()
         let titleSharedUseCase = TitleSharedUseCase()
         let viewModel = TitleViewModel(useCase: useCase)
         let titleSharedViewModel = TitleSharedViewModel(useCase: titleSharedUseCase)
