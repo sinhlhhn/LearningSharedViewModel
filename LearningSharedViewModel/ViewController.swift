@@ -7,12 +7,17 @@
 
 import UIKit
 
+enum Model: Hashable {
+    case title(TitleCellModel)
+    case icon(IconCellModel)
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var datasource: UITableViewDiffableDataSource<Int, TitleCellModel>!
-    private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
+    private var datasource: UITableViewDiffableDataSource<Int, Model>!
+    private var snapShoot: NSDiffableDataSourceSnapshot<Int, Model>!
     
     var viewModel: TitleViewModelProtocol
     var sharedViewModel: SharedViewModelProtocol
@@ -41,7 +46,7 @@ class ViewController: UIViewController {
         }
         
         sharedViewModel.didUpdateData = { [weak self] data, indexPath in
-            self?.updateData(with: data, at: indexPath)
+            self?.updateData(with: .title(data), at: indexPath)
         }
     }
     
@@ -58,16 +63,21 @@ class ViewController: UIViewController {
     private func configDatasource() {
         datasource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
             guard let self = self else { return UITableViewCell() }
-            let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
-            cell.viewModel = sharedViewModel
-            cell.bindModel(model: itemIdentifier)
-            // TODO: -Cần lưu lại indextPath cho VM xác định được reload Cell nào. Cần tìm cách khác
-            cell.indexPath = indexPath
-            return cell
+            switch itemIdentifier {
+            case .title(let model):
+                let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableCell.identifier) as! TitleTableCell
+                cell.viewModel = sharedViewModel
+                cell.bindModel(model: model)
+                // TODO: -Cần lưu lại indextPath cho VM xác định được reload Cell nào. Cần tìm cách khác
+                cell.indexPath = indexPath
+                return cell
+            case .icon(let model):
+                return UITableViewCell()
+            }
         })
     }
     
-    private func reloadUI(with data: [TitleCellModel]) {
+    private func reloadUI(with data: [Model]) {
         snapShoot = NSDiffableDataSourceSnapshot()
         snapShoot.appendSections([0])
         snapShoot.appendItems(data, toSection: 0)
@@ -75,7 +85,7 @@ class ViewController: UIViewController {
         datasource.apply(snapShoot)
     }
     
-    private func updateData(with data: TitleCellModel, at indexPath: IndexPath) {
+    private func updateData(with data: Model, at indexPath: IndexPath) {
         guard let selectedItem = datasource.itemIdentifier(for: indexPath) else {
             return
         }

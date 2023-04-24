@@ -8,13 +8,13 @@
 import Foundation
 
 protocol TitleUseCaseProtocol {
-    func getData() -> [TitleCellModel]
+    func getData() -> [Model]
 }
 
 class TitleUseCase: TitleUseCaseProtocol {
-    func getData() -> [TitleCellModel] {
+    func getData() -> [Model] {
         return Array(0...100).map {
-            TitleCellModel(title: "\($0)", isHiddenBottom: $0 % 2 == 0)
+            .title(TitleCellModel(title: "\($0)", isHiddenBottom: $0 % 2 == 0))
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TitleViewModelProtocol {
-    var didGetData: (([TitleCellModel]) -> ())? {get set}
+    var didGetData: (([Model]) -> ())? {get set}
     
     func getData()
 }
@@ -20,7 +20,7 @@ class TitleViewModel: TitleViewModelProtocol {
         self.useCase = useCase
     }
     
-    var didGetData: (([TitleCellModel]) -> ())?
+    var didGetData: (([Model]) -> ())?
     
     
     func getData() {

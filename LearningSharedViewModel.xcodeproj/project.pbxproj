@@ -20,6 +20,8 @@
 		8BE0B1D529F681A500DACC0F /* ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE0B1D429F681A500DACC0F /* ViewController.storyboard */; };
 		8BE0B1D829F68B7100DACC0F /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1D729F68B7100DACC0F /* SharedViewModel.swift */; };
 		8BE0B1DA29F68BCE00DACC0F /* SharedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1D929F68BCE00DACC0F /* SharedUseCase.swift */; };
+		8BE0B1DD29F68E2900DACC0F /* IconTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1DB29F68E2900DACC0F /* IconTableCell.swift */; };
+		8BE0B1DE29F68E2900DACC0F /* IconTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE0B1DC29F68E2900DACC0F /* IconTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8BE0B1D429F681A500DACC0F /* ViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewController.storyboard; sourceTree = "<group>"; };
 		8BE0B1D729F68B7100DACC0F /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		8BE0B1D929F68BCE00DACC0F /* SharedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUseCase.swift; sourceTree = "<group>"; };
+		8BE0B1DB29F68E2900DACC0F /* IconTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableCell.swift; sourceTree = "<group>"; };
+		8BE0B1DC29F68E2900DACC0F /* IconTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				8BE0B1C629F4F49400DACC0F /* TitleTableCell.swift */,
 				8BE0B1C729F4F49400DACC0F /* TitleTableCell.xib */,
+				8BE0B1DB29F68E2900DACC0F /* IconTableCell.swift */,
+				8BE0B1DC29F68E2900DACC0F /* IconTableCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 				8BE0B1D529F681A500DACC0F /* ViewController.storyboard in Resources */,
 				8BE0B1BF29F4F10400DACC0F /* LaunchScreen.storyboard in Resources */,
 				8BE0B1C929F4F49400DACC0F /* TitleTableCell.xib in Resources */,
+				8BE0B1DE29F68E2900DACC0F /* IconTableCell.xib in Resources */,
 				8BE0B1BC29F4F10400DACC0F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE0B1D329F624D400DACC0F /* TitleUseCase.swift in Sources */,
+				8BE0B1DD29F68E2900DACC0F /* IconTableCell.swift in Sources */,
 				8BE0B1CD29F57E4A00DACC0F /* TitleCellModel.swift in Sources */,
 				8BE0B1DA29F68BCE00DACC0F /* SharedUseCase.swift in Sources */,
 				8BE0B1B729F4F10300DACC0F /* ViewController.swift in Sources */,
