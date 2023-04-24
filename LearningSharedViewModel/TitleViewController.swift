@@ -22,7 +22,7 @@ class TitleViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("You must create this view controller with a user.")
+        fatalError("You must create this view controller with a view model.")
     }
     
     override func viewDidLoad() {
