@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: TitleTableCell.identifier, bundle: nil), forCellReuseIdentifier: TitleTableCell.identifier)
+        tableView.register(UINib(nibName: IconTableCell.identifier, bundle: nil), forCellReuseIdentifier: IconTableCell.identifier)
     }
 
     private func configDatasource() {
@@ -72,7 +73,10 @@ class ViewController: UIViewController {
                 cell.indexPath = indexPath
                 return cell
             case .icon(let model):
-                return UITableViewCell()
+                let cell = tableView.dequeueReusableCell(withIdentifier: IconTableCell.identifier) as! IconTableCell
+//                cell.viewModel = titleSharedViewModel
+                cell.bindModel(model: model)
+                return cell
             }
         })
     }

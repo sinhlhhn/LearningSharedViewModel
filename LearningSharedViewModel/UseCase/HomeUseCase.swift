@@ -13,8 +13,9 @@ protocol HomeUseCaseProtocol {
 
 class HomeUseCase: HomeUseCaseProtocol {
     func getData() -> [Model] {
-        return Array(0...100).map {
-            .title(TitleCellModel(title: "\($0)", isHiddenBottom: $0 % 2 == 0))
-        }
+        return [
+            .icon(IconCellModel(icon: "😀")),
+            .title(TitleCellModel(title: "*", isHiddenBottom: false))
+        ]
     }
 }
