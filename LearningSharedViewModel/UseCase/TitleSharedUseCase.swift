@@ -1,5 +1,5 @@
 //
-//  SharedUseCase.swift
+//  TitleSharedUseCase.swift
 //  LearningSharedViewModel
 //
 //  Created by Developer on 24/04/2023.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol SharedUseCaseProtocol {
+protocol TitleSharedUseCaseProtocol {
     func reload(with model: TitleCellModel) -> TitleCellModel
 }
 
-class SharedUseCase: SharedUseCaseProtocol {
+class TitleSharedUseCase: TitleSharedUseCaseProtocol {
     func reload(with model: TitleCellModel) -> TitleCellModel {
         var newData = model
         newData.title += "*"

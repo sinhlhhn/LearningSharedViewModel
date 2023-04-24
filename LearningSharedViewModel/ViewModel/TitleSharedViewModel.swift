@@ -14,9 +14,9 @@ protocol TitleSharedViewModelProtocol {
 }
 
 class TitleSharedViewModel: TitleSharedViewModelProtocol {
-    let useCase: SharedUseCaseProtocol
+    let useCase: TitleSharedUseCaseProtocol
     
-    init(useCase: SharedUseCaseProtocol) {
+    init(useCase: TitleSharedUseCaseProtocol) {
         self.useCase = useCase
     }
     
