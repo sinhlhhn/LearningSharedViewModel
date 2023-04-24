@@ -7,7 +7,15 @@
 
 import Foundation
 
-class TitleViewModel {
+protocol TitleViewModelProtocol {
+    var didGetData: (([TitleCellModel]) -> ())? {get set}
+    var didUpdateData: ((TitleCellModel, IndexPath) -> ())? {get set}
+    
+    func getData()
+    func reload(with indexPath: IndexPath)
+}
+
+class TitleViewModel: TitleViewModelProtocol {
     
     var didGetData: (([TitleCellModel]) -> ())?
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())?

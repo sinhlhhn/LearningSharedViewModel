@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     private var datasource: UITableViewDiffableDataSource<Int, TitleCellModel>!
     private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
     
-    var viewModel = TitleViewModel()
+    var viewModel: TitleViewModelProtocol = TitleViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
