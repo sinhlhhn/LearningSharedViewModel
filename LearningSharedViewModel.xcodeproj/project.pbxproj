@@ -73,10 +73,10 @@
 				8BE0B1B229F4F10300DACC0F /* AppDelegate.swift */,
 				8BE0B1B429F4F10300DACC0F /* SceneDelegate.swift */,
 				8BE0B1B629F4F10300DACC0F /* TitleViewController.swift */,
+				8BE0B1D429F681A500DACC0F /* TitleViewController.storyboard */,
 				8BE0B1BB29F4F10400DACC0F /* Assets.xcassets */,
 				8BE0B1BD29F4F10400DACC0F /* LaunchScreen.storyboard */,
 				8BE0B1C029F4F10400DACC0F /* Info.plist */,
-				8BE0B1D429F681A500DACC0F /* TitleViewController.storyboard */,
 			);
 			path = LearningSharedViewModel;
 			sourceTree = "<group>";
