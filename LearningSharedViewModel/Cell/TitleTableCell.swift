@@ -13,6 +13,8 @@ class TitleTableCell: UITableViewCell {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // TODO: - Đang cần phải giữ reference đến `TitleCellModel` và `IndexPath`
+    private(set) var model: TitleCellModel!
     var indexPath: IndexPath!
     
     var viewModel: TitleViewModelProtocol!
@@ -22,11 +24,12 @@ class TitleTableCell: UITableViewCell {
     }
     
     func bindModel(model: TitleCellModel) {
+        self.model = model
         titleLabel.text = model.title
         bottomView.isHidden = model.isHiddenBottom
     }
     
     @IBAction func tapped(_ sender: Any) {
-        viewModel.reload(with: indexPath)
+        viewModel.reload(with: model, at: indexPath)
     }
 }

@@ -17,6 +17,7 @@
 		8BE0B1C929F4F49400DACC0F /* TitleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE0B1C729F4F49400DACC0F /* TitleTableCell.xib */; };
 		8BE0B1CD29F57E4A00DACC0F /* TitleCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1CC29F57E4A00DACC0F /* TitleCellModel.swift */; };
 		8BE0B1D029F57ECB00DACC0F /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1CF29F57ECB00DACC0F /* TitleViewModel.swift */; };
+		8BE0B1D329F624D400DACC0F /* TitleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0B1D229F624D400DACC0F /* TitleUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8BE0B1C729F4F49400DACC0F /* TitleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableCell.xib; sourceTree = "<group>"; };
 		8BE0B1CC29F57E4A00DACC0F /* TitleCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCellModel.swift; sourceTree = "<group>"; };
 		8BE0B1CF29F57ECB00DACC0F /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		8BE0B1D229F624D400DACC0F /* TitleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		8BE0B1B129F4F10300DACC0F /* LearningSharedViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8BE0B1D129F624AA00DACC0F /* UseCase */,
 				8BE0B1CE29F57EB600DACC0F /* ViewModel */,
 				8BE0B1CB29F57E3900DACC0F /* Model */,
 				8BE0B1CA29F4F49700DACC0F /* Cell */,
@@ -101,6 +104,14 @@
 				8BE0B1CF29F57ECB00DACC0F /* TitleViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8BE0B1D129F624AA00DACC0F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8BE0B1D229F624D400DACC0F /* TitleUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE0B1D329F624D400DACC0F /* TitleUseCase.swift in Sources */,
 				8BE0B1CD29F57E4A00DACC0F /* TitleCellModel.swift in Sources */,
 				8BE0B1B729F4F10300DACC0F /* ViewController.swift in Sources */,
 				8BE0B1C829F4F49400DACC0F /* TitleTableCell.swift in Sources */,

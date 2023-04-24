@@ -12,31 +12,22 @@ protocol TitleViewModelProtocol {
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())? {get set}
     
     func getData()
-    func reload(with indexPath: IndexPath)
+    func reload(with model: TitleCellModel, at indexPath: IndexPath)
 }
 
 class TitleViewModel: TitleViewModelProtocol {
+    let useCase: TitleUseCaseProtocol = TitleUseCase()
     
     var didGetData: (([TitleCellModel]) -> ())?
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())?
     
-    private var data: [TitleCellModel] = [
-        TitleCellModel(title: "1", isHiddenBottom: true),
-        TitleCellModel(title: "2", isHiddenBottom: false),
-        TitleCellModel(title: "3", isHiddenBottom: true),
-        TitleCellModel(title: "4", isHiddenBottom: false),
-        TitleCellModel(title: "5", isHiddenBottom: true),
-    ]
-    
     func getData() {
+        let data = useCase.getData()
         didGetData?(data)
     }
     
-    func reload(with indexPath: IndexPath) {
-        var newData = data[indexPath.row]
-        newData.title += "*"
-        newData.isHiddenBottom.toggle()
-        data[indexPath.row] = newData
+    func reload(with model: TitleCellModel, at indexPath: IndexPath) {
+        let newData = useCase.reload(with: model)
         didUpdateData?(newData, indexPath)
     }
 }
