@@ -17,7 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         let sb = UIStoryboard(name: "TitleViewController", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TitleViewController") as? TitleViewController
+        
+        let useCase = TitleUseCase()
+        let viewModel = TitleViewModel(useCase: useCase)
+        let vc = sb.instantiateViewController(identifier: "TitleViewController") { coder in
+            return TitleViewController(coder: coder, viewModel: viewModel)
+        }
+        
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window

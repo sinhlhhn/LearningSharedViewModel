@@ -14,7 +14,16 @@ class TitleViewController: UIViewController {
     private var datasource: UITableViewDiffableDataSource<Int, TitleCellModel>!
     private var snapShoot: NSDiffableDataSourceSnapshot<Int, TitleCellModel>!
     
-    var viewModel: TitleViewModelProtocol = TitleViewModel()
+    var viewModel: TitleViewModelProtocol
+    
+    init?(coder: NSCoder, viewModel: TitleViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("You must create this view controller with a user.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

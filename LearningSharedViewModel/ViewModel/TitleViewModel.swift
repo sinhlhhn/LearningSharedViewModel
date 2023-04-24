@@ -16,7 +16,11 @@ protocol TitleViewModelProtocol {
 }
 
 class TitleViewModel: TitleViewModelProtocol {
-    let useCase: TitleUseCaseProtocol = TitleUseCase()
+    let useCase: TitleUseCaseProtocol
+    
+    init(useCase: TitleUseCaseProtocol) {
+        self.useCase = useCase
+    }
     
     var didGetData: (([TitleCellModel]) -> ())?
     var didUpdateData: ((TitleCellModel, IndexPath) -> ())?
