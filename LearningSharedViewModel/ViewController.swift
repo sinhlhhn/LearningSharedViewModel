@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     private var datasource: UITableViewDiffableDataSource<Int, Model>!
     private var snapShoot: NSDiffableDataSourceSnapshot<Int, Model>!
     
-    var viewModel: TitleViewModelProtocol
+    var viewModel: HomeViewModelProtocol
     var titleSharedViewModel: TitleSharedViewModelProtocol
     
-    init?(coder: NSCoder, viewModel: TitleViewModelProtocol, titleSharedViewModel: TitleSharedViewModelProtocol) {
+    init?(coder: NSCoder, viewModel: HomeViewModelProtocol, titleSharedViewModel: TitleSharedViewModelProtocol) {
         self.viewModel = viewModel
         self.titleSharedViewModel = titleSharedViewModel
         super.init(coder: coder)

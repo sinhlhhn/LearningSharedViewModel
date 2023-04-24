@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let useCase = HomeUseCase()
         let titleSharedUseCase = TitleSharedUseCase()
-        let viewModel = TitleViewModel(useCase: useCase)
+        let viewModel = HomeViewModel(useCase: useCase)
         let titleSharedViewModel = TitleSharedViewModel(useCase: titleSharedUseCase)
         let vc = sb.instantiateViewController(identifier: "ViewController") { coder in
             return ViewController(coder: coder, viewModel: viewModel, titleSharedViewModel: titleSharedViewModel)

@@ -1,5 +1,5 @@
 //
-//  TitleViewModel.swift
+//  HomeViewModel.swift
 //  LearningSharedViewModel
 //
 //  Created by Developer on 23/04/2023.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol TitleViewModelProtocol {
+protocol HomeViewModelProtocol {
     var didGetData: (([Model]) -> ())? {get set}
     
     func getData()
 }
 
-class TitleViewModel: TitleViewModelProtocol {
+class HomeViewModel: HomeViewModelProtocol {
     let useCase: HomeUseCaseProtocol
     
     init(useCase: HomeUseCaseProtocol) {
